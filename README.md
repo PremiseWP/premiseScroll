@@ -22,36 +22,42 @@ $.fn.premiseScroll.defaults = {
 To give you all the control you need to create or stop animations, check out these handy public methods and some examples on how to use them.
 
 *directionScrolled:* Returns the direction in which the user scrolled. `down` or `up` or empty string if user has not scrolled yet.
+
 ``
 el = $('selector').premiseScroll({...});
 el.directionScrolled();
 ``
 
 *pixelsScrolled:* Returns the amount of pixels scrolled per event.
+
 ``
 el = $('selector').premiseScroll({...});
 el.pixelsScrolled();
 ``
 
 *scrolled:* Returns the amount document has scrolled in pixels.
+
 ``
 el = $('selector').premiseScroll({...});
 el.scrolled();
 ``
 
 *totalScrolled:* Returns the total amount scrolled (in pixels) since the event first triggered.
+
 ``
 el = $('selector').premiseScroll({...});
 el.totalScrolled();
 ``
 
 *scrollStopped:* Returns Boolean `true` or `false`. true if the animation has been stopped using `stopScroll()`.
+
 ``
 el = $('selector').premiseScroll({...});
 el.scrollStopped();
 ``
 
 *stopScroll:* prevents the animation from happening again. Sets `scrollStopped()` return value to true.
+
 ``
 el = $('selector').premiseScroll({...});
 el.stopScroll();
