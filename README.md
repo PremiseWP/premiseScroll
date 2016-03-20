@@ -59,9 +59,9 @@ el.stopScroll();
 
 ## Examples 
 
-Here are a few examples to get your creativity goig on how to use the public methods above.
+Here are a few examples to get your creativity going on how to use the public methods above.
 
-Trigger animation for 800 pixels when element comes into view, but delay it by 350 pixels.
+**Example 1:** Trigger animation for 800 pixels when element comes into view, but delay it by 350 pixels.
 
 ```js
 var el = $('selector').premiseScroll({
@@ -76,7 +76,7 @@ var el = $('selector').premiseScroll({
 });
 ```
 
-Change the background of an element to randomly pick from an array of 20 background images, but do it every 5 pixels scrolled.
+**Example 2:** Change the background of an element to randomly pick from an array of 20 background images, but do it every 5 pixels scrolled.
 
 ```js
 var el = $('selector').premiseScroll({
@@ -98,7 +98,7 @@ function getRandomInt(min, max) {
 }
 ```
 
-Make elements rotate at different speeds regardless of wheter the are in view or not.
+**Example 3:** Make elements rotate at different speeds regardless of wheter the are in view or not.
 
 ```js
 var el = $('selector').premiseScroll({
@@ -117,7 +117,7 @@ var el = $('selector').premiseScroll({
 });
 ```
 
-Animate one `element-1` when `element-2` comes into view. But once the animation triggers, if the user scrolls up kill it!
+**Example 4:** Animate one `element-1` when `element-2` comes into view. But once the animation triggers, if the user scrolls up kill it!
 
 ```js
 var el = $('element-2').premiseScroll({
