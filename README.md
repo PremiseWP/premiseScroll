@@ -76,18 +76,19 @@ var el = $('selector').premiseScroll({
 });
 ```
 
-**Example 2:** Change the background of an element to randomly pick from an array of 20 background images, but do it every 5 pixels scrolled.
+**Example 2:** Change the background of an element to randomly pick from an array of background images, but do it every 5 pixels scrolled.
 
 ```js
+var images = ['image1.png', 'image2.png', 'image3.png',...];
+
 var el = $('selector').premiseScroll({
 	onScroll: function() {
-		var randInt = getRandomInt( 1, 20 );
+		var randInt = getRandomInt( 0, images.length );
 		
 		// el.scrolled() returns the amount the document has scrolled. i.e. the equivalent to $('body').scroolTop()
 		// animate every 5 pixels
 		if ( el.scrolled() % 5 === 0 ) {
-			// assuming imaes are all saved in folder /images/ and are titled bg-1.png, bg-2.png, etc.
-			$(this).css('background-image', 'url(/images/bg-'+ randInt +'.png)');
+			$(this).css('background-image', 'url('+ images[randInt] +')');
 		}
 	}
 });
