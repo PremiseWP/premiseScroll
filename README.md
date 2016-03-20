@@ -117,7 +117,7 @@ var el = $('selector').premiseScroll({
 });
 ```
 
-**Example 4:** Animate one `element-1` when `element-2` comes into view. But once the animation triggers, if the user scrolls up kill it!
+**Example 4:** Animate `element-1` when `element-2` comes into view. But once the animation triggers, if the user scrolls up kill it!
 
 ```js
 var el = $('element-2').premiseScroll({
