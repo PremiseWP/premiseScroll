@@ -57,7 +57,7 @@
 		var init = function() {
 			
 			// set totalScrolled in case the page is refreshed and the user has already scrolled 
-			totalScrolled = getNewScroll() + $(window).height() - $(el).offset().top - opts.offset
+			totalScrolled = getTotalScrolled();
 			
 			// Bind Scroll animation on window load
 			$(window).load(bindScroll);
@@ -85,7 +85,7 @@
 			if ( ! elm || scrollStopped || 'function' !== typeof opts.onScroll ) return false;
 
 			var newScroll     = getNewScroll();
-			totalScrolled     = newScroll + $(window).height() - elm.offset().top - opts.offset;
+			totalScrolled     = getTotalScrolled();
 			directionScrolled = ( scrolled < newScroll ) ? 'down' : 'up';
 
 			if ( opts.inView ) {
@@ -129,6 +129,15 @@
 			}
 			return newScroll;
 		};
+
+		/**
+		 * getTotalScrolled returns the total amount scrolled since the event first triggered.
+		 * 
+		 * @return {Integer} number of pixels scrolled
+		 */
+		var getTotalScrolled = function() {
+			return getNewScroll() + $(window).height() - $(el).offset().top - opts.offset;
+		}
 
 		/**
 		 * get Browser's User Agent
