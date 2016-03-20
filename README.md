@@ -99,7 +99,7 @@ function getRandomInt(min, max) {
 }
 ```
 
-**Example 3:** Make elements rotate at different speeds regardless of wheter the are in view or not.
+**Example 3:** Make elements rotate at different speeds regardless of whether the are in view or not.
 
 ```js
 var el = $('selector').premiseScroll({
