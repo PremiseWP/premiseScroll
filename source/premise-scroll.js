@@ -89,12 +89,9 @@
 			directionScrolled = ( scrolled < newScroll ) ? 'down' : 'up';
 
 			if ( opts.inView ) {
-				// if scrolling down
-				if ( newScroll + $(window).height() >= elm.offset().top + opts.offset && scrolled < newScroll ) {
-					opts.onScroll.call( elm );
-				}
-				// if scrolling up
-				if ( newScroll - $(window).height() <= elm.offset().top + opts.offset && scrolled > newScroll ) {
+				var elemPos = Math.round( elm.offset().top + opts.offset );
+				if ( ( newScroll + $(window).height() >= elemPos ) && 
+					 ( newScroll - elm.height() <= elemPos ) ) {
 					opts.onScroll.call( elm );
 				}
 			}
@@ -136,7 +133,7 @@
 		 * @return {Integer} number of pixels scrolled
 		 */
 		var getTotalScrolled = function() {
-			return getNewScroll() + $(window).height() - $(el).offset().top - opts.offset;
+			return Math.round( getNewScroll() + $(window).height() - $(el).offset().top - opts.offset );
 		}
 
 		/**
