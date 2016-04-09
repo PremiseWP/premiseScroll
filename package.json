@@ -1,6 +1,6 @@
 {
 	"name": "premiseScroll",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "premiseScroll allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.",
 	"author": "Premise WP <mario@premisewp.com> by: Mario Vallejo",
 	"devDependencies": {

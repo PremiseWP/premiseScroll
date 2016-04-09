@@ -5,6 +5,8 @@
 	 * when the user is scrolling and the criteria passed in the options argument
 	 * is met.
 	 *
+	 * @version  1.0.1
+	 *
 	 * @see $.fn.premiseScroll.defauts for more information on options
 	 * 
 	 * @param  {object} options options object

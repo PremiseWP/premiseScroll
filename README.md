@@ -142,3 +142,8 @@ var el = $('element-2').premiseScroll({
 	}
 });
 ```
+
+## Changelog  
+
+* **1.0.1:**
+	* new `startScroll` public method.
