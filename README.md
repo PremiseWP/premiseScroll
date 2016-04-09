@@ -143,6 +143,37 @@ var el = $('element-2').premiseScroll({
 });
 ```
 
+**Example 5:** Add infinte scroll to your blog. Load more posts when the user scrolls to the bottom of the page.
+
+```js
+// Bind to the footer
+var el = $('footer').premiseScroll({
+	onScroll: function(){
+		loadMorePosts();
+		el.stopScroll(); // prevents AJAX request from firing more than once
+	}
+});
+
+// Make AJAX request
+function loadMorePosts() {
+	$.ajax({
+		url: 'http://go_get_them_posts.com',
+		success: function(resp) {
+			// display the posts on your page
+
+			// bind the AJAX request again so that when the user scrolls through the new content
+			// and gets to the bottom of the page we call for more posts again.
+			el.startScroll();
+		}, 
+		error: function(resp) {
+			// let the user know that therre are no more posts to show
+		}
+	});
+
+	return false;
+}
+```
+
 ## Changelog  
 
 * **1.0.1:**
