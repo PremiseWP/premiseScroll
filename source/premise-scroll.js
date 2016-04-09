@@ -189,6 +189,10 @@
 			scrollStopped = true;
 		};
 
+		// allows the animation to trigger.
+		el.startScroll = function() {
+			scrollStopped = false;
+		};
 
 		// direction in which the user scrolled
 		el.directionScrolled = function() {

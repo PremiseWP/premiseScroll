@@ -57,6 +57,12 @@ el = $('selector').premiseScroll({...});
 el.stopScroll();
 ```
 
+**startScroll:** Allows the animation to trigger. Sets `scrollStopped()` return value back to false (its original value).
+```js
+el = $('selector').premiseScroll({...});
+el.startScroll();
+```
+
 ## Examples 
 
 Here are a few examples to get your creativity going on how to use the public methods above.
