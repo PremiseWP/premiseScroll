@@ -197,27 +197,27 @@
 		// direction in which the user scrolled
 		el.directionScrolled = function() {
 			return directionScrolled;
-		}
+		};
 		
 		// amount of pixels scrolled per event
 		el.pixelsScrolled = function() {
 			return pixelsScrolled;
-		}
+		};
 		
 		// records amount document has scrolled
 		el.scrolled = function() {
 			return scrolled;
-		}
+		};
 		
 		// record the total amount scrolled since the event first triggered
 		el.totalScrolled = function() {
 			return totalScrolled;
-		}
+		};
 		
 		// when set to true prevents event from triggering
 		el.scrollStopped = function() {
 			return scrollStopped;
-		}
+		};
 
 		init();
 
