@@ -186,3 +186,7 @@ function loadMorePosts() {
 
 * **1.0.1:**
 	* new `startScroll` public method.
+
+* **1.2.0:**
+	* new `offsetIn` and `offsetOut` options. Allows you to offset the element when it comes into view and when it goes out of view.
+	passing `-1` as the value for `offsetOut` will keep the animation going even when the element goes out of view.
