@@ -88,7 +88,11 @@
 		var doScroll = function() {
 			var elm = $(el);
 
-			if ( ! elm || scrollStopped || 'function' !== typeof opts.onScroll ) return false;
+			if ( ! elm || 
+				scrollStopped || 
+				'function' !== typeof opts.onScroll ) {
+				return false;
+			}
 
 			var newScroll     = getNewScroll();
 			totalScrolled     = getTotalScrolled();
@@ -231,6 +235,11 @@
 		el.scrollStopped = function() {
 			return scrollStopped;
 		};
+
+		// check if browser is a mobile browser
+		el.browserMobile = function() {
+			return browserMobile();
+		}
 
 		init();
 
