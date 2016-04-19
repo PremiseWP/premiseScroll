@@ -71,6 +71,12 @@ el = $('selector').premiseScroll({...});
 el.startScroll();
 ```
 
+**browserMobile:** Quickly check if the browser is a mobile browser or not. Returns `true` if browser is mobile, `false` otherwise.
+```js
+el = $('selector').premiseScroll({...});
+el.browserMobile();
+```
+
 ## Examples 
 
 Here are a few examples to get your creativity going on how to use the public methods above.
