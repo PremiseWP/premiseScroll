@@ -17,6 +17,10 @@
 		// Parse the default options
 		var opts = $.extend( {}, $.fn.premiseScroll.defaults, options );
 
+		// Default offsetIn and offsetOut to offset if empty
+		opts.offsetIn  = opts.offsetIn || opts.offset;
+		opts.offsetOut = opts.offsetOut || opts.offset;
+		
 		if (this.length === 0) {
 			return this;
 		}
@@ -58,7 +62,7 @@
 		 */
 		var init = function() {
 			
-			// set totalScrolled in case the page is refreshed and the user has already scrolled 
+			// set totalScrolled in case the user has already scrolled and the page is refreshed
 			totalScrolled = getTotalScrolled();
 			
 			// Bind Scroll animation on window load
@@ -91,10 +95,17 @@
 			directionScrolled = ( scrolled < newScroll ) ? 'down' : 'up';
 
 			if ( opts.inView ) {
-				var elemPos = Math.round( elm.offset().top + opts.offset );
-				if ( ( newScroll + $(window).height() >= elemPos ) && 
-					 ( newScroll - elm.height() <= elemPos ) ) {
-					opts.onScroll.call( elm );
+				var elemPos = Math.round( elm.offset().top );
+				if ( -1 !== opts.offsetOut ) {
+					if ( ( newScroll + $(window).height() >= elemPos + opts.offsetIn ) && 
+						 ( newScroll - elm.height() <= elemPos + opts.offsetOut ) ) {
+						opts.onScroll.call( elm );
+					}
+				}
+				else {
+					if ( ( newScroll + $(window).height() >= elemPos + opts.offsetIn ) ) {
+						opts.onScroll.call( elm );
+					}
 				}
 			}
 			else {
@@ -135,7 +146,7 @@
 		 * @return {Integer} number of pixels scrolled
 		 */
 		var getTotalScrolled = function() {
-			return Math.round( getNewScroll() + $(window).height() - $(el).offset().top - opts.offset );
+			return Math.round( getNewScroll() + $(window).height() - $(el).offset().top - opts.offsetIn );
 		}
 
 		/**
@@ -234,8 +245,10 @@
 	 */
 	$.fn.premiseScroll.defaults = {
 	    
-	    inView: true,  // whther to trigger the event when element comes into view
-	    offset: 0,     // number of pixels to delay the trigger when the user scrolls
+	    inView: true,  // whether to trigger the event when element comes into view
+	    offset: 0,     // number of pixels to delay the trigger
+	    offsetIn: '',  // number of pixels to delay the trigger when the element comes into view. Defaults to offset value
+	    offsetOut: '', // number to pixels to delay stopping the animation when the element comes out of view. Defaults to offset value
 
         /**
          * onScroll is called when the node meets the criteria specified in the options

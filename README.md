@@ -3,19 +3,27 @@
 premiseScroll allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.
 
 Call it the way you are used to, ` $('selector').premiseScroll( { ..options.. } ); `. The `options` argument is an object containing
-the criteria that the element that you want to animate should meet before the animation triggers. The two options, currently, are 
-`inView` and `offset`.
+the criteria that the element that you want to animate should meet before the animation triggers. Current options available are listed below.
 
 ```js
 $.fn.premiseScroll.defaults = {
-    
-    inView: true,  // whether to trigger the event when element comes into view
-    offset: 0,     // number of pixels to delay the trigger when the user scrolls
 
-    // when the node meets the criteria specified above, this function is called
-    onScroll: function() { return true; },
-}
+    inView: true,  // whether to trigger the event when element comes into view
+    offset: 0,     // number of pixels to delay the trigger
+    offsetIn: '',  // number of pixels to delay the trigger when the element comes into view. Defaults to offset value
+    offsetOut: '', // number to pixels to delay stopping the animation when the element comes out of view. Defaults to offset value
+
+    /**
+     * onScroll is called when the node meets the criteria specified in the options
+     * 
+     * @param  {object}  node the element in context. 
+     * @return {boolean}      true 
+     */
+    onScroll: function( node ) { return true; },
+};
 ```  
+
+**Tip:** If you pass `-1` as the value for `offsetOut` the animation will not stop when the element comes out of view.
 
 ## Public Methods
 
