@@ -101,7 +101,7 @@ var el = $('selector').premiseScroll({
 ```js
 var images = ['image1.png', 'image2.png', 'image3.png',...];
 
-var el = $('selector').premiseScroll({
+var el = $('#selector').premiseScroll({
 	onScroll: function() {
 		var randInt = getRandomInt( 0, images.length );
 
@@ -122,13 +122,14 @@ function getRandomInt(min, max) {
 **Example 3:** Make elements rotate at different speeds regardless of whether the are in view or not.
 
 ```js
-var el = $('selector').premiseScroll({
+var el = $('.selector').premiseScroll({
 	inView: false, // setting inView to false will trigger this animation ALWAYS
 	onScroll: function() {
-		var a = el.find('selector_for_a'),
-		b     = el.find('selector_for_b'),
-		c     = el.find('selector_for_c'),
-		d     = el.find('selector_for_d');
+		var _a = $(this),
+		a      = _a.find('selector_for_a'),
+		b      = _a.find('selector_for_b'),
+		c      = _a.find('selector_for_c'),
+		d      = _a.find('selector_for_d');
 
 		a.css('transform', 'rotate(-'+ ( el.totalScrolled() * 0.25   ) +'deg)');
 		b.css('transform', 'rotate(-'+ ( el.totalScrolled() * 0.558  ) +'deg)');
