@@ -1,4 +1,4 @@
-# premiseScroll  
+# premiseScroll
 
 premiseScroll allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.
 
@@ -15,13 +15,13 @@ $.fn.premiseScroll.defaults = {
 
     /**
      * onScroll is called when the node meets the criteria specified in the options
-     * 
-     * @param  {object}  node the element in context. 
-     * @return {boolean}      true 
+     *
+     * @param  {object}  node the element in context.
+     * @return {boolean}      true
      */
     onScroll: function( node ) { return true; },
 };
-```  
+```
 
 **Tip:** If you pass `-1` as the value for `offsetOut` the animation will not stop when the element comes out of view.
 
@@ -77,7 +77,7 @@ el = $('selector').premiseScroll({...});
 el.browserMobile();
 ```
 
-## Examples 
+## Examples
 
 Here are a few examples to get your creativity going on how to use the public methods above.
 
@@ -85,11 +85,11 @@ Here are a few examples to get your creativity going on how to use the public me
 
 ```js
 var el = $('selector').premiseScroll({
-	offset: 350, 
+	offset: 350,
 	onScroll: function() {
 		if ( 800 >= el.totalScrolled() ) {
-			// by calling totalScrolled() I get the amount of pixels scrolled 
-			// starting from when the animation triggered. in this case, 
+			// by calling totalScrolled() I get the amount of pixels scrolled
+			// starting from when the animation triggered. in this case,
 			// when the element came into view minus 350px.
 		}
 	}
@@ -104,11 +104,11 @@ var images = ['image1.png', 'image2.png', 'image3.png',...];
 var el = $('selector').premiseScroll({
 	onScroll: function() {
 		var randInt = getRandomInt( 0, images.length );
-		
+
 		// el.scrolled() returns the amount the document has scrolled. i.e. the equivalent to $('body').scroolTop()
 		// animate every 5 pixels
 		if ( el.scrolled() % 5 === 0 ) {
-			$(this).css('background-image', 'url('+ images[randInt] +')');
+			el.css('background-image', 'url('+ images[randInt] +')');
 		}
 	}
 });
@@ -125,15 +125,15 @@ function getRandomInt(min, max) {
 var el = $('selector').premiseScroll({
 	inView: false, // setting inView to false will trigger this animation ALWAYS
 	onScroll: function() {
-		var a = $(this).find('selector_for_a'),
-		b     = $(this).find('selector_for_b'),
-		c     = $(this).find('selector_for_c'),
-		d     = $(this).find('selector_for_d');
+		var a = el.find('selector_for_a'),
+		b     = el.find('selector_for_b'),
+		c     = el.find('selector_for_c'),
+		d     = el.find('selector_for_d');
 
-		a.css('transform', 'rotate(-'+ ( cogs.totalScrolled() * 0.25   ) +'deg)');
-		b.css('transform', 'rotate(-'+ ( cogs.totalScrolled() * 0.558  ) +'deg)');
-		c.css('transform', 'rotate('+  ( cogs.totalScrolled() * 0.7399 ) +'deg)');
-		d.css('transform', 'rotate('+  ( cogs.totalScrolled() * 0.373  ) +'deg)');
+		a.css('transform', 'rotate(-'+ ( el.totalScrolled() * 0.25   ) +'deg)');
+		b.css('transform', 'rotate(-'+ ( el.totalScrolled() * 0.558  ) +'deg)');
+		c.css('transform', 'rotate('+  ( el.totalScrolled() * 0.7399 ) +'deg)');
+		d.css('transform', 'rotate('+  ( el.totalScrolled() * 0.373  ) +'deg)');
 	}
 });
 ```
@@ -178,7 +178,7 @@ function loadMorePosts() {
 			// bind the AJAX request again so that when the user scrolls through the new content
 			// and gets to the bottom of the page we call for more posts again.
 			el.startScroll();
-		}, 
+		},
 		error: function(resp) {
 			// let the user know that therre are no more posts to show
 		}
@@ -188,7 +188,7 @@ function loadMorePosts() {
 }
 ```
 
-## Changelog  
+## Changelog
 
 * **1.0.1:**
 	* new `startScroll` public method.
