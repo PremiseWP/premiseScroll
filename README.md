@@ -1,6 +1,6 @@
 # premiseScroll
 
-premiseScroll allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.
+premiseScroll is a jQuery plugin that allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.
 
 Call it the way you are used to, ` $('selector').premiseScroll( { ..options.. } ); `. The `options` argument is an object containing
 the criteria that the element that you want to animate should meet before the animation triggers. Current options available are listed below.
