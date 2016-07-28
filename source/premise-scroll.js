@@ -73,9 +73,6 @@
 			// set totalScrolled in case the user has already scrolled and the page is refreshed
 			totalScrolled = getTotalScrolled();
 
-			// get the emelment's position on page load.
-			elemPos = Math.round( $(el).offset().top );
-
 			// Bind Scroll animation on window load
 			$(window).load(bindScroll);
 		};
@@ -98,6 +95,9 @@
 		 */
 		var doScroll = function() {
 			var elm = $(el);
+
+			// reset the element's positoin in case it moved
+			elemPos = Math.round( elm.offset().top );
 
 			if ( ! elm ||
 				scrollStopped ||
@@ -130,9 +130,6 @@
 			pixelsScrolled = newScroll - scrolled;
 
 			scrolled = newScroll;
-
-			// reset the element's positoin in case it moved
-			elemPos = Math.round( elm.offset().top );
 
 			return false;
 		};
