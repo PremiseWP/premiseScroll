@@ -5,7 +5,7 @@
 	 * when the user is scrolling and the criteria passed in the options argument
 	 * is met.
 	 *
-	 * @version  1.2.1
+	 * @version  1.1.2
 	 *
 	 * @see $.fn.premiseScroll.defaults for more information on options
 	 *
@@ -49,7 +49,13 @@
 		totalScrolled,
 
 		// when set to true prevents event from triggering
-		scrollStopped = false;
+		scrollStopped = false,
+
+		// The window height
+		wHeight = $(window).height(),
+
+		// this will hld the lement's position in pixels relative to the document
+		elemPos = 0;
 
 		/*
 			PRIVATE METHODS
@@ -58,12 +64,17 @@
 		/**
 		 * initiate our plugin
 		 *
+		 * constructs our ibject
+		 *
 		 * @return {void}
 		 */
 		var init = function() {
 
 			// set totalScrolled in case the user has already scrolled and the page is refreshed
 			totalScrolled = getTotalScrolled();
+
+			// get the emelment's position on page load.
+			elemPos = Math.round( $(el).offset().top );
 
 			// Bind Scroll animation on window load
 			$(window).load(bindScroll);
@@ -99,15 +110,15 @@
 			directionScrolled = ( scrolled < newScroll ) ? 'down' : 'up';
 
 			if ( opts.inView ) {
-				var elemPos = Math.round( elm.offset().top );
+
 				if ( -1 !== opts.offsetOut ) {
-					if ( ( newScroll + $(window).height() >= elemPos + opts.offsetIn ) &&
+					if ( ( newScroll + wHeight >= elemPos + opts.offsetIn ) &&
 						( newScroll - elm.height() <= elemPos + opts.offsetOut ) ) {
 						opts.onScroll.call( elm );
 					}
 				}
 				else {
-					if ( ( newScroll + $(window).height() >= elemPos + opts.offsetIn ) ) {
+					if ( ( newScroll + wHeight >= elemPos + opts.offsetIn ) ) {
 						opts.onScroll.call( elm );
 					}
 				}
@@ -119,6 +130,9 @@
 			pixelsScrolled = newScroll - scrolled;
 
 			scrolled = newScroll;
+
+			// reset the element's positoin in case it moved
+			elemPos = Math.round( elm.offset().top );
 
 			return false;
 		};
