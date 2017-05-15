@@ -1,5 +1,7 @@
 # premiseScroll
 
+THIS PLUGIN has been moved to [Premise WP](https://github.com/PremiseWP/Premise-WP/blob/master/js/source/premise-scroll.js)
+
 premiseScroll is a jQuery plugin that allows you to easily bind animations to elements in the DOM on scroll. It is extremely flexible and lightweight.
 
 Check out the [demo](http://scroll.premisewp.com/).
